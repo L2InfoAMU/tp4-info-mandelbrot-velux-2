@@ -146,6 +146,9 @@ public class ComplexTest {
 
     @Test
     void testSubtract(){assertEquals(Complex.ZERO,onePlusI.subtract(onePlusI));}
+
+    @Test
+    void testMultiply(){assertEquals(two,Complex.ONE.multiply(two));}
 }
 
 
