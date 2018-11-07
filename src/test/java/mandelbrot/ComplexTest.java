@@ -168,6 +168,9 @@ public class ComplexTest {
         assertEquals(Complex.ONE,Complex.ZERO.pow(0));
         assertEquals(new Complex(8,0),two.pow(3));
     }
+
+    @Test
+    void testScale(){ assertEquals(new Complex(3,3),onePlusI.scale(3));}
 }
 
 
