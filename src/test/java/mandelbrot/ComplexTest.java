@@ -137,6 +137,10 @@ public class ComplexTest {
     void testComplexReal() {
         assertEquals(Complex.ZERO,onePlusI.real(0));
     }
+    @Test
+    void testComplexAdd(){
+        assertEquals(two,Complex.ONE.add(Complex.ONE));
+    }
 }
 
 
