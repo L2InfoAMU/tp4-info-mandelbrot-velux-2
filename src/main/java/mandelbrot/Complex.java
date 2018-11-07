@@ -39,7 +39,7 @@ public class Complex {
     /**
      * One as a complex number
      */
-    static Complex ONE = new Complex(1, 1);
+    static Complex ONE = new Complex(1, 0);
 
 
     /**
@@ -210,8 +210,8 @@ public class Complex {
         if (o == null || getClass() != o.getClass())
             return false;
         Complex complex = (Complex) o;
-        return Helpers.doubleCompare(complex.real, real) == 0 ||
-                Helpers.doubleCompare(complex.imaginary, imaginary) == 0;
+        return Helpers.doubleCompare(complex.real, this.real) == 0 &&
+                Helpers.doubleCompare(complex.imaginary, this.imaginary) == 0;
     }
 
     @Override
