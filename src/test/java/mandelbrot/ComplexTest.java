@@ -133,14 +133,19 @@ public class ComplexTest {
         Complex c2 = new Complex(real, imaginary);
         assertEquals(c1.hashCode(), c2.hashCode());
     }
+
     @Test
     void testComplexReal() {
         assertEquals(Complex.ZERO,onePlusI.real(0));
     }
+
     @Test
     void testComplexAdd(){
         assertEquals(two,Complex.ONE.add(Complex.ONE));
     }
+
+    @Test
+    void testSubtract(){assertEquals(Complex.ZERO,onePlusI.subtract(onePlusI));}
 }
 
 
