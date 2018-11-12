@@ -77,7 +77,7 @@ public class Main extends Application {
         /*Display set Buttons*/
         Buttons setColor = new Buttons("Set color",480,350,80,30);
         Buttons setCamera = new Buttons("Set camera",480,390,80,30);
-        Buttons setDefault = new Buttons("Default",480,420,80,30);
+        Buttons setDefault = new Buttons("Default",480,430,80,30);
         p.getChildren().addAll(setColor,setCamera,setDefault);
 
         /*Display scene*/
