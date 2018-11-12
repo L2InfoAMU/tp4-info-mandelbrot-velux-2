@@ -29,9 +29,9 @@ public class Buttons extends Parent {
         this.getChildren().add(backgroundButton);
 
         letterButton.setText(this.letter);
-        letterButton.setFont(new Font("impact",25));
+        letterButton.setFont(new Font("impact",13));
         letterButton.setFill(Color.GREY);
-        letterButton.setX(sizeX/4);
+        letterButton.setX(sizeX/5);
         letterButton.setY(sizeY/1.5);
         this.getChildren().add(letterButton);
 
