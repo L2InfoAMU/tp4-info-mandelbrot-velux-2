@@ -16,6 +16,8 @@ public class DescText {
         descText.setFill(color);
         descText.setX(setX);
         descText.setY(setY);
+        descText.setTranslateX(setX);
+        descText.setTranslateY(setY);
     }
 
     public Text getDescText(){return descText;}
