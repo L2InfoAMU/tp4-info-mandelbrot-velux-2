@@ -53,6 +53,7 @@ public class Controller implements Initializable {
     /**
      * compute and display the image.
      */
+
     private void render() {
         List<Pixel> pixels = getPixels();
         renderPixels(pixels);
@@ -149,5 +150,17 @@ public class Controller implements Initializable {
             }
         }
         return new Pixel(x, y, sampledSubPixels);
+    }
+
+
+    public void setNewColor(Color[] colors){
+        this.colors = colors;
+        histogram = new Histogram(breakpoints,colors);
+        render();
+    }
+
+    public void setNewCamera(Camera camera){
+        this.camera = camera;
+        render();
     }
 }
