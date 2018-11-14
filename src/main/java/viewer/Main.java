@@ -2,6 +2,7 @@ package viewer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
@@ -19,38 +20,38 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        GridPane p = fxmlLoader.load(getClass().getResource("/viewer/viewer.fxml").openStream());
+        GridPane pane = fxmlLoader.load(getClass().getResource("/viewer/viewer.fxml").openStream());
         Controller controller = (Controller) fxmlLoader.getController();
 
         /*Display ColorPicker*/
         final ColorPicker colorPicker1 = new ColorPicker(Color.rgb(55, 118, 145));
         colorPicker1.setTranslateX(300);
-        colorPicker1.setTranslateY(340);
+        colorPicker1.setTranslateY(300);
 
         final ColorPicker colorPicker2 = new ColorPicker(Color.rgb(63, 74, 132));
         colorPicker2.setTranslateX(300);
-        colorPicker2.setTranslateY(370);
+        colorPicker2.setTranslateY(330);
 
         final ColorPicker colorPicker3 = new ColorPicker(Color.rgb(145, 121, 82));
         colorPicker3.setTranslateX(300);
-        colorPicker3.setTranslateY(400);
+        colorPicker3.setTranslateY(360);
 
         final ColorPicker colorPicker4 = new ColorPicker(Color.gray(0.7));
         colorPicker4.setTranslateX(300);
-        colorPicker4.setTranslateY(430);
+        colorPicker4.setTranslateY(390);
 
-        p.getChildren().addAll(colorPicker1,colorPicker2,colorPicker3,colorPicker4);
+        pane.getChildren().addAll(colorPicker1,colorPicker2,colorPicker3,colorPicker4);
 
 
         /*Display description text*/
-        DescText descColor = new DescText("Color:","impact",25,Color.WHITE,300,310);
-        DescText descCamera = new DescText("Camera:","impact",25,Color.WHITE,10,310);
-        DescText descCenterX = new DescText("= centerX","impact",16,Color.WHITE,160,340);
-        DescText descCenterY = new DescText("= CenterY","impact",16,Color.WHITE,160,370);
-        DescText descWidth = new DescText("= Width","impact",16,Color.WHITE,160,400);
-        DescText descRatio = new DescText("= Ratio","impact",16,Color.WHITE,160,430);
+        DescText descColor = new DescText("Color:","impact",25,Color.WHITE,300,270);
+        DescText descCamera = new DescText("Camera:","impact",25,Color.WHITE,10,270);
+        DescText descCenterX = new DescText("centerX","impact",16,Color.WHITE,185,300);
+        DescText descCenterY = new DescText("centerY","impact",16,Color.WHITE,185,330);
+        DescText descWidth = new DescText("camWidth","impact",16,Color.WHITE,185,360);
+        DescText descRatio = new DescText("camRatio","impact",16,Color.WHITE,185,390);
 
-        p.getChildren().addAll(
+        pane.getChildren().addAll(
                 descColor.getDescText(),
                 descCamera.getDescText(),
                 descCenterX.getDescText(),
@@ -61,27 +62,29 @@ public class Main extends Application {
 
 
         /*Spinner for Camera*/
-        Spinners centerX = new Spinners(10,340,-2.0,5.0,-0.5);
-        Spinners centerY = new Spinners(10,370,-2.0,5.0,0.0);
-        Spinners width = new Spinners(10,400,-2.0,5.0,3.0);
-        Spinners ratio = new Spinners(10,430,1.0,3.0,4./3.0);
+        Spinners centerX = new Spinners(10,300,-2.0,5.0,-0.5);
+        Spinners centerY = new Spinners(10,330,-2.0,5.0,0.0);
+        Spinners CamWidth = new Spinners(10,360,-2.0,5.0,3.0);
+        Spinners CamRatio = new Spinners(10,390,1.0,3.0,4./3.0);
 
-        p.getChildren().addAll(
+        pane.getChildren().addAll(
                 centerX.getSpinner(),
                 centerY.getSpinner(),
-                width.getSpinner(),
-                ratio.getSpinner()
+                CamWidth.getSpinner(),
+                CamRatio.getSpinner()
         );
 
 
         /*Display set Buttons*/
-        Buttons setColor = new Buttons("Set color",480,350,80,30);
-        Buttons setCamera = new Buttons("Set camera",480,390,80,30);
-        Buttons setDefault = new Buttons("Default",480,430,80,30);
-        p.getChildren().addAll(setColor,setCamera,setDefault);
+        Buttons setColor = new Buttons("Set color",480,300,80,30);
+        Buttons setCamera = new Buttons("Set camera",480,340,80,30);
+        Buttons setDefault = new Buttons("Default",480,380,80,30);
+
+        pane.getChildren().addAll(setColor,setCamera,setDefault);
 
         /*Display scene*/
-        primaryStage.setScene(new Scene(p,1200,900));
+        primaryStage.setTitle("Mandelbrot");
+        primaryStage.setScene(new Scene(pane,1200,900));
 
 
         /*Set new color*/
@@ -106,8 +109,8 @@ public class Main extends Application {
                 controller.setNewCamera(new Camera(
                         centerX.getSpinner().getValue(),
                         centerY.getSpinner().getValue(),
-                        width.getSpinner().getValue(),
-                        ratio.getSpinner().getValue()));
+                        CamWidth.getSpinner().getValue(),
+                        CamRatio.getSpinner().getValue()));
             }
         });
 
@@ -117,8 +120,8 @@ public class Main extends Application {
 
                 centerX.setDefault();
                 centerY.setDefault();
-                width.setDefault();
-                ratio.setDefault();
+                CamWidth.setDefault();
+                CamRatio.setDefault();
 
                 colorPicker1.setValue(Color.rgb(55, 118, 145));
                 colorPicker2.setValue(Color.rgb(63, 74, 132));
