@@ -24,27 +24,35 @@ public class Main extends Application {
         Controller controller = (Controller) fxmlLoader.getController();
 
         /*Display ColorPicker*/
-        final ColorPicker colorPicker1 = new ColorPicker(Color.rgb(55, 118, 145));
+        final ColorPicker colorPicker1 = new ColorPicker(Color.rgb(51,51,51));
         colorPicker1.setTranslateX(300);
-        colorPicker1.setTranslateY(300);
+        colorPicker1.setTranslateY(240);
 
-        final ColorPicker colorPicker2 = new ColorPicker(Color.rgb(63, 74, 132));
+        final ColorPicker colorPicker2 = new ColorPicker(Color.rgb(179,179,179));
         colorPicker2.setTranslateX(300);
-        colorPicker2.setTranslateY(330);
+        colorPicker2.setTranslateY(270);
 
-        final ColorPicker colorPicker3 = new ColorPicker(Color.rgb(145, 121, 82));
+        final ColorPicker colorPicker3 = new ColorPicker(Color.rgb(55, 118, 145));
         colorPicker3.setTranslateX(300);
-        colorPicker3.setTranslateY(360);
+        colorPicker3.setTranslateY(300);
 
-        final ColorPicker colorPicker4 = new ColorPicker(Color.gray(0.7));
+        final ColorPicker colorPicker4 = new ColorPicker(Color.rgb(63, 74, 132));
         colorPicker4.setTranslateX(300);
-        colorPicker4.setTranslateY(390);
+        colorPicker4.setTranslateY(330);
 
-        pane.getChildren().addAll(colorPicker1,colorPicker2,colorPicker3,colorPicker4);
+        final ColorPicker colorPicker5 = new ColorPicker(Color.rgb(145, 121, 82));
+        colorPicker5.setTranslateX(300);
+        colorPicker5.setTranslateY(360);
+
+        final ColorPicker colorPicker6 = new ColorPicker(Color.rgb(250, 250, 200));
+        colorPicker6.setTranslateX(300);
+        colorPicker6.setTranslateY(390);
+
+        pane.getChildren().addAll(colorPicker1,colorPicker2,colorPicker3,colorPicker4,colorPicker5,colorPicker6);
 
 
         /*Display description text*/
-        DescText descColor = new DescText("Color:","impact",25,Color.WHITE,300,270);
+        DescText descColor = new DescText("Color:","impact",25,Color.WHITE,300,210);
         DescText descCamera = new DescText("Camera:","impact",25,Color.WHITE,10,270);
         DescText descCenterX = new DescText("centerX","impact",16,Color.WHITE,185,300);
         DescText descCenterY = new DescText("centerY","impact",16,Color.WHITE,185,330);
@@ -96,7 +104,9 @@ public class Main extends Application {
                                         colorPicker1.getValue(),
                                         colorPicker2.getValue(),
                                         colorPicker3.getValue(),
-                                        colorPicker4.getValue()
+                                        colorPicker4.getValue(),
+                                        colorPicker5.getValue(),
+                                        colorPicker6.getValue()
                                 ).getColor());
                     }
         });
@@ -123,10 +133,14 @@ public class Main extends Application {
                 CamWidth.setDefault();
                 CamRatio.setDefault();
 
-                colorPicker1.setValue(Color.rgb(55, 118, 145));
-                colorPicker2.setValue(Color.rgb(63, 74, 132));
-                colorPicker3.setValue(Color.rgb(145, 121, 82));
-                colorPicker4.setValue(Color.gray(0.7));
+                colorPicker1.setValue(Color.rgb(51,51,51));
+                colorPicker2.setValue(Color.rgb(179,179,179));
+                colorPicker3.setValue(Color.rgb(55, 118, 145));
+                colorPicker4.setValue(Color.rgb(63, 74, 132));
+                colorPicker5.setValue(Color.rgb(145, 121, 82));
+                colorPicker6.setValue(Color.rgb(250, 250, 200));
+
+
             }
         });
 
